@@ -3,11 +3,9 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
-
-
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
@@ -20,7 +18,7 @@ var connectMongo = process.env.connectMongo || "mongodb://localhost/webScrapper"
 mongoose.connect(connectMongo);
 
 app.get("/", function (req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
+    res.json(path.join(__dirname, "./public/index.html"));
 });
 
 
