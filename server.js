@@ -18,7 +18,7 @@ var connectMongo = process.env.connectMongo || "mongodb://localhost/webScrapper"
 mongoose.connect(connectMongo);
 
 app.get("/", function (req, res) {
-    res.json(path.join(__dirname, "./public/index.html"));
+    res.json(path.join(__dirname, "public/index.html"));
 });
 
 
