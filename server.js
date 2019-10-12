@@ -15,8 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+var MONGODB = "mongodb://heroku_39kx9dwz:Gaurang4185!@ds333248.mlab.com:33248/heroku_39kx9dwz"
+
 var connectMongo = process.env.connectMongo || "mongodb://localhost/webScrapper";
-mongoose.connect(connectMongo);
+mongoose.connect(MONGODB);
+
 
 app.get("/", function (req, res) {
     res.json(path.join(__dirname, "./public/index.html"));
