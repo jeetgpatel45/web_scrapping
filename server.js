@@ -3,6 +3,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
+
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
@@ -27,7 +28,7 @@ app.get("/scrape", function (req, res) {
     axios.get(URL).then(function (response) {
         var $ = cheerio.load(response.data);
 
-        $("div.wx-media-object-inner").each(function (i, element) {
+        $("div.wx-media-object").each(function (i, element) {
 
             var result = [];
 
