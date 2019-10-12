@@ -27,7 +27,7 @@ app.get("/scrape", function (req, res) {
     axios.get(URL).then(function (response) {
         var $ = cheerio.load(response.data);
 
-        $("div.wx-media-object-inner").each(function (i, element) {
+        $("div.wx-media-object").each(function (i, element) {
 
             var result = [];
 
